@@ -2,11 +2,11 @@ package springBootCrud.dao;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
-import springBootCrud.model.User;
+import springBootCrud.model.Role;
 
 @Repository
-public interface UserDao extends CrudRepository<User, Long> {
+public interface RoleDao extends CrudRepository<Role, Long> {
 
-    User findUserByLogin(String login);
+    Role findRoleById(Long id);
 
 }
