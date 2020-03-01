@@ -5,12 +5,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
-import springBootCrud.dao.UserDao;
 import springBootCrud.model.Role;
 import springBootCrud.model.User;
 import springBootCrud.service.UserService;
 
-import java.util.Optional;
 import java.util.Set;
 
 @Controller

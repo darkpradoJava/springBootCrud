@@ -9,6 +9,9 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>war</packaging>
 
+    <name>SpringBootThymeleaf</name>
+    <description>Spring Boot and Thymeleaf</description>
+
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>

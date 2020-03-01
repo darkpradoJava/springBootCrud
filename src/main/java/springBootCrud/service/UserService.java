@@ -11,6 +11,6 @@ public interface UserService {
     void delete(User user);
     List<User> getUsers();
     User getUserById(Long id);
-    User getUserByLogin(String login);
+    User getByUsername(String username);
 
 }

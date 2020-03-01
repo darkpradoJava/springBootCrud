@@ -7,6 +7,4 @@ import springBootCrud.model.Role;
 @Repository
 public interface RoleDao extends CrudRepository<Role, Long> {
 
-    Role findRoleById(Long id);
-
 }

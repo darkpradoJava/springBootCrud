@@ -7,6 +7,6 @@ import springBootCrud.model.User;
 @Repository
 public interface UserDao extends CrudRepository<User, Long> {
 
-    User findUserByLogin(String login);
+    User findByUsername(String username);
 
 }

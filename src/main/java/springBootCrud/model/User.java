@@ -16,8 +16,8 @@ public class User implements UserDetails {
     private Long id;
     @Column(name = "name")
     private String name;
-    @Column(name = "login")
-    private String login;
+    @Column(name = "username")
+    private String username;
     @Column(name = "password")
     private String password;
 
@@ -31,21 +31,21 @@ public class User implements UserDetails {
 
     }
 
-    public User(String login, String password) {
-        this.login = login;
+    public User(String username, String password) {
+        this.username = username;
         this.password = password;
     }
 
-    public User(String name, String login, String password) {
+    public User(String name, String username, String password) {
         this.name = name;
-        this.login = login;
+        this.username = username;
         this.password = password;
     }
 
-    public User(Long id, String name, String login, String password) {
+    public User(Long id, String name, String username, String password) {
         this.id = id;
         this.name = name;
-        this.login = login;
+        this.username = username;
         this.password = password;
     }
 
@@ -55,10 +55,6 @@ public class User implements UserDetails {
 
     public String getName() {
         return name;
-    }
-
-    public String getLogin() {
-        return login;
     }
 
     public String getPassword() {
@@ -77,8 +73,8 @@ public class User implements UserDetails {
         this.name = name;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    public void setLogin(String username) {
+        this.username = username;
     }
 
     public void setPassword(String password) {
@@ -96,7 +92,7 @@ public class User implements UserDetails {
 
     @Override
     public String getUsername() {
-        return getLogin();
+        return username;
     }
 
     @Override
@@ -121,7 +117,7 @@ public class User implements UserDetails {
 
     @Override
     public String toString() {
-        return "User: login " + login + ", role " + roles;
+        return "User: login " + username + ", role " + roles;
     }
 
 }

@@ -30,9 +30,9 @@ public class UserServiceImpl implements UserService {
     public void add(User user, String role) {
         Set<Role> setRoles = new HashSet<>();
         if(role.equals("ADMIN")) {
-            setRoles.add(roleDao.findRoleById(1L));
+            setRoles.add(roleDao.findById(1L).get());
         } else {
-            setRoles.add(roleDao.findRoleById(2L));
+            setRoles.add(roleDao.findById(2L).get());
         }
         user.setRoles(setRoles);
         userDao.save(user);
@@ -42,9 +42,9 @@ public class UserServiceImpl implements UserService {
     public void update(User user, String role) {
         Set<Role> setRoles = new HashSet<>();
         if(role.equals("ADMIN")) {
-            setRoles.add(roleDao.findRoleById(1L));
+            setRoles.add(roleDao.findById(1L).get());
         } else {
-            setRoles.add(roleDao.findRoleById(2L));
+            setRoles.add(roleDao.findById(2L).get());
         }
         user.setRoles(setRoles);
         userDao.save(user);
@@ -67,8 +67,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getUserByLogin(String login) {
-        return userDao.findUserByLogin(login);
+    public User getByUsername(String username) {
+        return userDao.findByUsername(username);
     }
 
 }
