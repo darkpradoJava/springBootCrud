@@ -1,4 +1,4 @@
-package springBootCrud.config;
+package springBootCrud.secureConfig;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;

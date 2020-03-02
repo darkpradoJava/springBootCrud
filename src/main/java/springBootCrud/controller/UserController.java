@@ -14,6 +14,7 @@ import java.util.Set;
 @Controller
 public class UserController {
 
+    private ModelAndView modelAndView = new ModelAndView();
     private UserService userService;
 
     @Autowired
@@ -22,9 +23,10 @@ public class UserController {
     }
 
     @GetMapping(value = "/admin")
-    public String printUsers(ModelMap model) {
-        model.addAttribute("users", userService.getUsers());
-        return "admin";
+    public ModelAndView printUsers() {
+        modelAndView.addObject("users", userService.getUsers());
+        modelAndView.setViewName("admin");
+        return modelAndView;
     }
 
     @GetMapping(value = "/admin/delete/{id}")

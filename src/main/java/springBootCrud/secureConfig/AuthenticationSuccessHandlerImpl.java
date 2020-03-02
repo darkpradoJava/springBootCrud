@@ -1,4 +1,4 @@
-package springBootCrud.config;
+package springBootCrud.secureConfig;
 
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.authority.AuthorityUtils;

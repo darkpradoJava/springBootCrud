@@ -7,8 +7,7 @@
 
 <h1>Login</h1>
 <h3>Enter user login and password:</h3>
-<!--<p th:if="${#request.getParameter('error') == 'true'}" >Login Failed!!!</p>-->
-<!--<form th:action="@{/login}" method='POST'>-->
+<p th:if="${#request.getParameter('error') == 'true'}" >Login Failed!!!</p>
 <form th:action="@{/login}" method='POST'>
     <table>
         <tr>
