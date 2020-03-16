@@ -33,29 +33,23 @@ public class UserController {
         return "redirect:/admin";
     }
 
-    @GetMapping(value = "/admin/add")
-    public String addPage(ModelMap model) {
-        ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("edit");
-        return "edit";
-    }
-
     @PostMapping(value = "/admin/add")
     public String addUser(@ModelAttribute("user") User user, String role) {
         userService.add(user, role);
         return "redirect:/admin";
     }
 
-    @GetMapping(value = "/admin/edit/{id}")
-    public String editUserPage(@PathVariable("id") Long id, ModelMap model) {
-        User tempUser = userService.getUserById(id);
-        model.addAttribute("user", tempUser);
-        model.addAttribute("id", id);
-        return "edit";
-    }
+//    @GetMapping(value = "/admin/edit/{id}")
+//    public String editUserPage(@PathVariable("id") Long id, ModelMap model) {
+//        User tempUser = userService.getUserById(id);
+//        model.addAttribute("user", tempUser);
+//        model.addAttribute("id", id);
+//        return "edit";
+//    }
 
     @PostMapping(value = "/admin/edit")
     public String editUser(@RequestParam(value = "id") Long id, @ModelAttribute("user") User user, String role) {
+        System.out.println(id);
         user.setId(id);
         userService.update(user, role);
         return "redirect:/admin";

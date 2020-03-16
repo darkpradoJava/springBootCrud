@@ -36,4 +36,9 @@ public class MainController {
         return "user";
     }
 
+    @GetMapping("/error")
+    public String getErrorPage() {
+        return "error";
+    }
+
 }
