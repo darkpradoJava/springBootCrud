@@ -6,11 +6,10 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import springBootCrud.dao.UserDao;
 import springBootCrud.model.User;
 
 @Transactional
-@Service
+@Service(value = "userDetails")
 public class UserDetailServiceImpl implements UserDetailsService {
 
     @Autowired
