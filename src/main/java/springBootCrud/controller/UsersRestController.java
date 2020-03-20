@@ -24,14 +24,14 @@ public class UsersRestController {
         return userService.getUsers();
     }
 
-    @PostMapping("/add")
-    ResponseEntity<Void> addUser(@ModelAttribute("user") User user, String role) {
+    @PutMapping("/add")
+    ResponseEntity<Void> addUser(User user, String role) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userService.add(user, role);
         return ResponseEntity.ok().build();
     }
 
-    @PostMapping("/delete")
+    @DeleteMapping("/delete")
     ResponseEntity<Void> deleteUser(Long id) {
         User user = userService.getUserById(id);
         if (user != null) {
@@ -41,8 +41,8 @@ public class UsersRestController {
         return ResponseEntity.status(404).build();
     }
 
-    @PostMapping(value = "/edit")
-    ResponseEntity<Void> editUser(@ModelAttribute("user") User user, String role, Long id) {
+    @PutMapping(value = "/edit")
+    ResponseEntity<Void> editUser(User user, String role, Long id) {
         user.setId(id);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userService.update(user, role);
