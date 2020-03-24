@@ -47,55 +47,56 @@
                         <th colspan="2">Action</th>
                     </tr>
                     </thead>
-                    <tbody>
-                    <tr class="td-center" th:each="user: ${users}">
-                        <td><span th:text="${user.id}"/></td>
-                        <td><span th:text="${user.username}"/></td>
-                        <td><span th:text="${user.password}"/></td>
-                        <td><span th:text="${user.name}"/></td>
-                        <td><span th:each="role: ${user.roles}" th:text="${role.role}"/></td>
-                        <td>
+                    <tbody id="users">
+                    <!--                    <tr id="users" class="td-center">-->
+                    <!--                        th:each="user: ${users}"-->
+                    <!--                        <td><span th:text="${user.id}"/></td>-->
+                    <!--                        <td><span th:text="${user.username}"/></td>-->
+                    <!--                        <td><span th:text="${user.password}"/></td>-->
+                    <!--                        <td><span th:text="${user.name}"/></td>-->
+                    <!--                        <td><span th:each="role: ${user.roles}" th:text="${role.role}"/></td>-->
+                    <!--                        <td>-->
 
-                            <button type="button" class="btn btn-primary" data-toggle="modal" th:attr="data-target='#editUserModal'+ ${user.id}">edit
-                            </button>
+                    <!--                            <button type="button" class="btn btn-primary" data-toggle="modal" th:attr="data-target='#editUserModal'+ ${user.id}">edit-->
+                    <!--                            </button>-->
 
-                            <!-- Modal edit-->
-                            <div class="modal fade" th:id="'editUserModal' + ${user.id}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
-                                 aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <h5 class="modal-title" id="exampleModalLongTitle2">Edit user</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <div class="modal-body">
-                                            <form th:action="@{/admin/edit}" method="post">
-                                                <input name="id" th:value="${user.id}" readonly><br>
-                                                <input type="text" name="login" id="loginE">
-                                                <label for="loginE">login</label><br>
-                                                <input type="text" name="password" id="passwordE">
-                                                <label for="passwordE">password</label><br>
-                                                <input type="text" name="name" id="nameE">
-                                                <label for="nameE">name</label><br>
-                                                <input type="text" name="role" id="roleE">
-                                                <label for="roleE">role</label><br>
-                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                <button type="submit" class="btn btn-primary">Edit user</button>
-                                            </form>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                    <!--                             Modal edit-->
+                    <!--                            <div class="modal fade" th:id="'editUserModal' + ${user.id}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"-->
+                    <!--                                 aria-hidden="true">-->
+                    <!--                                <div class="modal-dialog modal-dialog-centered" role="document">-->
+                    <!--                                    <div class="modal-content">-->
+                    <!--                                        <div class="modal-header">-->
+                    <!--                                            <h5 class="modal-title" id="exampleModalLongTitle2">Edit user</h5>-->
+                    <!--                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">-->
+                    <!--                                                <span aria-hidden="true">&times;</span>-->
+                    <!--                                            </button>-->
+                    <!--                                        </div>-->
+                    <!--                                        <div class="modal-body">-->
+                    <!--                                            <form th:action="@{/admin/edit}" method="post">-->
+                    <!--                                                <input name="id" th:value="${user.id}" readonly><br>-->
+                    <!--                                                <input type="text" name="login" id="loginE">-->
+                    <!--                                                <label for="loginE">login</label><br>-->
+                    <!--                                                <input type="text" name="password" id="passwordE">-->
+                    <!--                                                <label for="passwordE">password</label><br>-->
+                    <!--                                                <input type="text" name="name" id="nameE">-->
+                    <!--                                                <label for="nameE">name</label><br>-->
+                    <!--                                                <input type="text" name="role" id="roleE">-->
+                    <!--                                                <label for="roleE">role</label><br>-->
+                    <!--                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>-->
+                    <!--                                                <button type="submit" class="btn btn-primary">Edit user</button>-->
+                    <!--                                            </form>-->
+                    <!--                                        </div>-->
+                    <!--                                    </div>-->
+                    <!--                                </div>-->
+                    <!--                            </div>-->
 
-                        </td>
-                        <td>
-                            <form th:action="@{/admin/delete/{id}(id=${user.id})}" method="get">
-                                <button type="submit" class="btn btn-primary">delete</button>
-                            </form>
-                        </td>
-                    </tr>
+                    <!--                        </td>-->
+                    <!--                        <td>-->
+                    <!--                            <form th:action="@{/admin/delete/{id}(id=${user.id})}" method="get">-->
+                    <!--                                <button type="submit" class="btn btn-primary">delete</button>-->
+                    <!--                            </form>-->
+                    <!--                        </td>-->
+                    <!--                    </tr>-->
                     </tbody>
                 </table>
             </div>
@@ -135,14 +136,58 @@
 
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-<script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-        crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
         integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
         crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function () {
+            // AJAX-запрос с помощью функции getJSON
+            //   url - адрес запроса
+            //   success - обработка данных при успешном ответе сервера
+            $.getJSON({
+                url: 'http://localhost:8080/api/users',
+                success: function (data) {
+                    // переменная, для хранения результата
+                    var output = '';
+                    // переберём всех пользователей
+                    data.forEach(function (item) {
+                        output += '<tr>';
+                        output += '<td><span>' + item.id + '</span></td>';
+                        output += '<td><span>' + item.username + '</span></td>';
+                        output += '<td><span>' + item.password + '</span></td>';
+                        output += '<td><span>' + item.name + '</span></td>';
+                        for (let i = 0; i < item.roles.length; i++) {
+                            output += '<td><span>' + item.roles[i].role + '</span></td>';
+                        }
+                        output += '<td>';
+                        output += '<button id="btn_edit_' + item.id + '" type="submit" class="btn btn-primary">edit</button>';
+                        output += '</td>';
+                        output += '<td>';
+                        output += '<button class="btn_delete btn btn-primary" data-btn-id="' + item.id + '" type="submit">delete</button>';
+                        output += '</td>';
+                        output += '</tr>';
+                    })
+                    $('#users').empty().append(output);
+                }
+            });
+
+            $(document).on("click", ".btn_delete", function () {
+                const userId = $(this).attr("data-btn-id");
+                $.ajax({
+                    url: 'http://localhost:8080/api/delete',
+                    data: {
+                        id: userId,
+                    },
+                    type: 'DELETE',
+                })
+            });
+
+        }
+    )
+</script>
 </body>
 </html>

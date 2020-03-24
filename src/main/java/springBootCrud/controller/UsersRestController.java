@@ -32,7 +32,7 @@ public class UsersRestController {
     }
 
     @DeleteMapping("/delete")
-    ResponseEntity<Void> deleteUser(Long id) {
+    ResponseEntity<Void> deleteUser(@RequestParam(value = "id") Long id) {
         User user = userService.getUserById(id);
         if (user != null) {
             userService.delete(user);
