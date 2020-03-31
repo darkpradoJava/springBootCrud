@@ -24,25 +24,25 @@ public class UsersRestController {
         return userService.getUsers();
     }
 
-    @PutMapping("/add")
-    ResponseEntity<Void> addUser(User user, String role) {
+    @PostMapping("/add")
+    ResponseEntity<Void> addUser(User user, @RequestParam String role) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userService.add(user, role);
         return ResponseEntity.ok().build();
     }
 
     @DeleteMapping("/delete")
-    ResponseEntity<Void> deleteUser(@RequestParam(value = "id") Long id) {
+    ResponseEntity<Void> deleteUser(@RequestParam Long id) {
         User user = userService.getUserById(id);
         if (user != null) {
             userService.delete(user);
             return ResponseEntity.ok().build();
         }
-        return ResponseEntity.status(404).build();
+        return ResponseEntity.notFound().build();
     }
 
     @PutMapping(value = "/edit")
-    ResponseEntity<Void> editUser(User user, String role, Long id) {
+    ResponseEntity<Void> editUser(User user, @RequestParam("role") String role, @RequestParam("id") Long id) {
         user.setId(id);
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userService.update(user, role);
